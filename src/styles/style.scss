@@ -1,0 +1,32 @@
+/*
+ * @Description: 演示样式
+ * @Author: linpan(45650368@qq.com)
+ * @Date: 2022-09-06 10:04:43
+ * @LastEditors: linp linp@epsoft.com.cn
+ * @LastEditTime: 2022-09-20 10:20:23
+ * @WebSite: https://vusui.com
+ * @Copyright: 2017-present The Vusui Authors
+ * @Readme: 开源不易，且用且珍惜！
+ */
+@use './variable' as *;
+
+// 控制台
+.dashboard-demo {
+  padding: 15px;
+
+  .dashboard-item {
+    width: 100%;
+    display: block;
+    background-color: #fff;
+  }
+}
+
+/**
+  * @description: 夜简模式
+  * @Date: 2022-09-09 11:04:24
+  */
+html.dark {
+  .dashboard-item {
+    background-color: #222;
+  }
+}

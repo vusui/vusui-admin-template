@@ -1,0 +1,61 @@
+/*
+ * @Description: CSS过度动画
+ * @Author: linpan(45650368@qq.com)
+ * @Date: 2022-08-29 16:34:31
+ * @LastEditors: linp linp@epsoft.com.cn
+ * @LastEditTime: 2022-09-02 15:30:43
+ * @WebSite: https://vusui.com
+ * @Copyright: 2017-present The Vusui Authors
+ * @Readme: 开源不易，且用且珍惜！
+ */
+//  页面切换动画
+.page-slide-enter-active {
+  transition: all 0.3s ease-out;
+}
+.page-slide-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.page-slide-enter-from,
+.page-slide-leave-to {
+  transform: translateX(1.25rem);
+  opacity: 0;
+}
+
+// LOGO切换动画
+.logo-slide-enter-active,
+.logo-slide-leave-active {
+  transition: all 0.2s ease-out;
+}
+.logo-slide-enter-from,
+.logo-slide-leave-to {
+  transform: translateX(0.625rem);
+  opacity: 0;
+}
+
+// 面包屑切换动画
+.breadcrumb-slide-enter-active,
+.breadcrumb-slide-leave-active {
+  transition: all 0.5s;
+}
+.breadcrumb-slide-enter-from,
+.breadcrumb-slide-leave-to {
+  transform: translateX(-1.25rem);
+  opacity: 0;
+}
+.breadcrumb-slide-move {
+  transition: all 0.5s;
+}
+.breadcrumb-slide-leave-active {
+  position: absolute;
+}
+
+// 设置功能栏动画
+.setting-slide-enter-active,
+.setting-slide-leave-active {
+  transition: all 0.3s ease-out;
+}
+.setting-slide-enter-from,
+.setting-slide-leave-to {
+  transform: translate3d(100%, 0, 0);
+  opacity: 0;
+}

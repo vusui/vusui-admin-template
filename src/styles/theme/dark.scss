@@ -1,0 +1,75 @@
+/*
+ * @Description: 夜间模式主题
+ * @Author: linpan(45650368@qq.com)
+ * @Date: 2022-08-30 15:05:55
+ * @LastEditors: linp linp@epsoft.com.cn
+ * @LastEditTime: 2022-09-06 09:28:04
+ * @WebSite: https://vusui.com
+ * @Copyright: 2017-present The Vusui Authors
+ * @Readme: 开源不易，且用且珍惜！
+ */
+@use 'element-plus/theme-chalk/src/dark/css-vars.scss';
+@use '../variable' as *;
+
+html.dark {
+  color-scheme: dark;
+
+  $vus-color-placeholder: #74757e;
+  $vus-color-disabled-text: #74757e;
+
+  --vus-admin-color-base: #c3c5c9;
+  --vus-admin-bg-page: #333;
+
+  // 一级菜单
+  --vus-admin-sidebar-bg-img: '';
+  --vus-admin-sidebar-bg-color: #141414;
+  --vus-admin-sidebar-box-shadow-color: #{$vus-color-white--01};
+  --vus-admin-sidebar-menu-bg-color: #141414;
+  --vus-admin-sidebar-menu-hover-color: #{$vus-color-white--003};
+  --vus-admin-sidebar-menu-text-color: #b0b8c5;
+  // 子菜单
+  --vus-admin-sidebar-sub-menu-bg-color: #0c0c0c;
+  --vus-admin-sidebar-sub-menu-hover-color: #{$vus-color-white--002};
+
+  --vus-admin-header-bg-color: #222;
+  --vus-admin-header-box-shadow-color: #{$vus-color-white--005};
+  --vus-admin-header-collapse-text-color: var(--vus-admin-color-base);
+  --vus-admin-header-collapse-hover-color: #{$vus-color-white--001};
+
+  // 标签
+  --vus-admin-tags-bg-color: #222;
+  --vus-admin-tags-box-shadow-color: #{$vus-color-white--005};
+
+  // 标签列表item
+  --vus-admin-tags-item-bg-color: #{$vus-color-white--01}; // item背景颜色
+  --vus-admin-tags-item-bg-hover-color: #{$vus-color-white--03}; // item hover背景颜色
+  --vus-admin-tags-item-border-hover-color: #{$vus-color-white--02}; // item hover边框颜色
+  --vus-admin-tags-item-text-color: var(--vus-admin-color-base);
+  --vus-admin-tags-item-text-hover-color: #{$vus-color-white};
+
+  // 快捷功能
+  --vus-admin-header-setting-text-color: var(--vus-admin-color-base);
+  --vus-admin-header-setting-text-hover-color: var(--vus-admin-color-base);
+  --vus-admin-header-setting-drawer-bg-color: #222;
+  --vus-admin-header-setting-drawer-box-shadow-color: #{$vus-color-white--01};
+  --vus-admin-header-setting-drawer-title-color: var(--vus-admin-color-base);
+
+  // 面包屑
+  --vus-admin-breadcrumb-link-color: var(--vus-admin-color-base);
+  --vus-admin-breadcrumb-separator-color: #{$vus-color-placeholder};
+  --vus-admin-breadcrumb-text-color: #{$vus-color-disabled-text};
+
+  // 用户信息
+  --vus-admin-header-user-hover-color: #{$vus-color-white--005};
+  --vus-admin-header-user-name-text-color: var(--vus-admin-color-base);
+
+  // 遮罩层背景
+  --vus-admin-mask-bg-color: #{$vus-color-white--01};
+
+  /**
+  * @description: 演示样式
+  * @Date: 2022-09-06 09:26:33
+  * @return {*}
+  */
+  --demo-table-header-bg-color: #333;
+}

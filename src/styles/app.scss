@@ -1,0 +1,1123 @@
+/*
+ * @Description: 布局样式
+ * @Author: linpan(45650368@qq.com)
+ * @Date: 2022-08-19 16:14:41
+ * @LastEditors: linp linp@epsoft.com.cn
+ * @LastEditTime: 2022-09-20 10:21:48
+ * @WebSite: https://vusui.com
+ * @Copyright: 2017-present The Vusui Authors
+ * @Readme: 开源不易，且用且珍惜！
+ */
+/**
+ * @description: 主容器
+ * @Date: 2022-08-02 18:00:54
+ */
+.app-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  /**
+   * @description: 遮罩层
+   * @Date: 2022-08-02 18:01:01
+   */
+  .app-mask {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-color: var(--vus-admin-mask-bg-color);
+    backdrop-filter: blur(0.625rem);
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+
+    // 需要遮罩住 app-sidebar 层，索引值要比 app-sidebar 大
+    &.index-setting-drawer {
+      z-index: 1002;
+    }
+  }
+
+  /**
+   * @description: 侧边导航菜单
+   * @Date: 2022-08-02 18:00:43
+   */
+  .app-sidebar {
+    width: var(--vus-admin-sidebar-max-width);
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1001;
+    overflow: hidden;
+    background-color: var(--vus-admin-sidebar-bg-color);
+    background-image: var(--vus-admin-sidebar-bg-img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: width 280ms;
+
+    a {
+      width: 100%;
+      overflow: hidden;
+      display: block;
+    }
+
+    .horizontal-collapse-transition {
+      transition: 0s width ease-in-out, 0s padding-left ease-in-out,
+        0s padding-right ease-in-out;
+    }
+
+    .el-scrollbar {
+      height: 100%;
+
+      .el-scrollbar__bar.is-vertical {
+        right: 0;
+      }
+    }
+
+    .sidebar-scrollbar-wrapper {
+      overflow-x: hidden !important;
+    }
+
+    .is-horizontal {
+      display: none;
+    }
+
+    // 标题文字超出隐藏
+    .vus-title {
+      max-width: 98%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    // 图标
+    .el-icon,
+    .vus-icon,
+    .svg-icon {
+      width: 0.875rem;
+      height: 0.875rem;
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+      text-align: center;
+
+      + .vus-title {
+        max-width: calc(98% - 1.375rem);
+      }
+    }
+
+    .el-icon svg {
+      width: 1em;
+      height: 1em;
+      font-size: 1em;
+    }
+
+    // 菜单样式
+    .el-menu {
+      width: 100% !important;
+      height: 100%;
+      border: none;
+
+      &:not(.el-menu--collapse) {
+        width: 100%;
+      }
+    }
+
+    // 鼠标经过菜单项
+    .submenu-title-noDropdown,
+    .el-sub-menu__title {
+      &:hover {
+        background-color: var(--vus-admin-sidebar-menu-hover-color) !important;
+      }
+    }
+
+    // 激活的子级菜单其父级的文本颜色
+    .is-active > .el-sub-menu__title {
+      color: var(--vus-admin-sidebar-sub-menu-text-active-color) !important;
+    }
+
+    // 子级菜单
+    & .nest-menu .el-sub-menu > .el-sub-menu__title,
+    & .el-sub-menu .el-menu-item {
+      min-width: var(--vus-admin-sidebar-max-width) !important;
+      background-color: var(--vus-admin-sidebar-sub-menu-bg-color) !important;
+
+      &:hover {
+        background-color: var(
+          --vus-admin-sidebar-sub-menu-hover-color
+        ) !important;
+      }
+    }
+
+    // logo
+    .logo-wrapper {
+      width: 100%;
+      height: var(--vus-admin-sidebar-logo-height);
+      padding: 0.625rem;
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+      background-color: var(--vus-admin-sidebar-logo-bg-color);
+      border-bottom: 0.0625rem solid var(--vus-admin-sidebar-logo-border-color);
+
+      .logo-link {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+      }
+
+      .logo-img {
+        width: 1.875rem;
+        height: 1.875rem;
+
+        + .logo-title {
+          margin-left: 0.625rem;
+        }
+      }
+
+      .logo-title {
+        height: 1.875rem;
+        line-height: 1.875rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--vus-admin-sidebar-logo-text-color);
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    // 继承app-sidebar
+    // 显示logo
+    &.has-logo {
+      .el-scrollbar {
+        // logo容器高度与header高度一致 50px
+        height: calc(100% - var(--vus-admin-sidebar-logo-height));
+      }
+    }
+  }
+
+  /**
+   * @description: 顶部导航栏
+   * @Date: 2022-08-02 18:00:35
+   */
+  .app-header {
+    width: 100%;
+    height: var(--vus-admin-header-height);
+    overflow: hidden;
+    position: relative;
+    background-color: var(--vus-admin-header-bg-color);
+    box-shadow: 0 0.0625rem 0.1875rem var(--vus-admin-header-box-shadow-color);
+
+    // 申缩左侧菜单按钮
+    .header-menu-icon {
+      width: 3.125rem;
+      height: 100%;
+      float: left;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 280ms;
+      cursor: pointer;
+      color: var(--vus-admin-header-collapse-text-color);
+
+      &:hover {
+        background-color: var(--vus-admin-header-collapse-hover-color);
+      }
+
+      &.active {
+        transform: rotateY(180deg);
+      }
+    }
+
+    // 快捷功能图标
+    .header-quick-wrapper {
+      height: 100%;
+      float: right;
+      position: relative;
+      display: flex;
+
+      .quick-icon {
+        height: 100%;
+        padding: 0 0.625rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 280ms;
+        cursor: pointer;
+        color: var(--vus-admin-header-setting-text-color);
+
+        &:hover {
+          opacity: 0.8;
+          color: var(--vus-admin-header-setting-text-hover-color);
+        }
+      }
+    }
+  }
+
+  /**
+   * @description: 主体容器
+   * @Date: 2022-08-02 18:01:18
+   */
+  .app-main-wrapper {
+    min-height: 100vh;
+    margin-left: var(--vus-admin-sidebar-max-width);
+    position: relative;
+    transition: margin-left 280ms;
+
+    // 浮动header栏
+    .has-fixed-header {
+      width: calc(100% - var(--vus-admin-sidebar-max-width));
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      transition: width 280ms;
+
+      + .app-main {
+        padding-top: var(--vus-admin-header-height);
+      }
+    }
+
+    // 计算固定header+tags的高度
+    &.has-header-tags {
+      .app-header {
+        box-shadow: 0 0.0625rem 0.0625rem
+          var(--vus-admin-header-box-shadow-color);
+      }
+
+      .app-main {
+        /* 84 = header + tags = 50 + 34 */
+        // min-height: calc(100vh - var(--vus-admin-header-tags-height));
+      }
+
+      .has-fixed-header + .app-main {
+        padding-top: var(--vus-admin-header-tags-height);
+      }
+    }
+  }
+
+  /**
+   * @description: 内容主体
+   * @Date: 2022-08-02 18:01:27
+   */
+  .app-main {
+    width: 100%;
+    height: 100vh;
+    // 窗口可视高度 - header高度 50px
+    // min-height: calc(100vh - var(--vus-admin-header-height));
+    position: relative;
+  }
+
+  /**
+  * @description: 当前位置(面包屑)
+  * @Date: 2022-08-10 10:10:41
+  */
+  .app-breadcrumb {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.el-breadcrumb {
+      line-height: var(--vus-admin-header-height);
+      display: inline-block;
+      font-size: 0.875rem;
+      padding-left: 0.5rem;
+
+      .el-breadcrumb__separator,
+      .el-breadcrumb__inner,
+      .el-breadcrumb__inner a {
+        font-weight: 400;
+        max-width: 7.5rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      // 分隔符
+      .el-breadcrumb__separator {
+        color: var(--vus-admin-breadcrumb-separator-color);
+      }
+
+      // 无链接的文本
+      .no-redirect {
+        color: var(--vus-admin-breadcrumb-text-color);
+        cursor: text;
+      }
+
+      // 有链接的文本
+      .el-breadcrumb__inner a {
+        color: var(--vus-admin-breadcrumb-link-color);
+
+        &:hover {
+          color: var(--vus-admin-breadcrumb-link-hover-color);
+        }
+      }
+    }
+  }
+
+  /**
+   * @description: 设置功能
+   * @Date: 2022-08-23 15:11:39
+   */
+  // 设置抽屉
+  .app-setting-drawer {
+    width: 17.5rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2000;
+    box-shadow: 0 0 1.875rem
+      var(--vus-admin-header-setting-drawer-box-shadow-color);
+    background-color: var(--vus-admin-header-setting-drawer-bg-color);
+    -webkit-overflow-scrolling: touch;
+
+    .setting-title-wrapper {
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--vus-admin-header-setting-drawer-title-color);
+
+      .title-icon {
+        cursor: pointer;
+      }
+    }
+
+    .setting-scroll-wrapper {
+      position: relative;
+    }
+
+    .setting-form-wrapper {
+      padding: 0 1.25rem;
+
+      .setting-form-help-icon {
+        margin-left: 0.25rem;
+      }
+    }
+
+    .setting-bottom-wrapper {
+      padding: 1.25rem;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  /**
+   * @description: tags 标签
+   * @Date: 2022-08-03 09:45:22
+   */
+  //  tags容器
+  .app-tags-wrapper {
+    width: 100%;
+    height: var(--vus-admin-tags-height);
+    background-color: var(--vus-admin-tags-bg-color);
+    box-shadow: 0 0.0625rem 0.1875rem var(--vus-admin-tags-box-shadow-color);
+
+    .tags-scroll-pane-container {
+      position: relative;
+      overflow: hidden;
+
+      .tags-link-item {
+        height: 1.75rem;
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        border-radius: 0.125rem;
+        background-color: var(--vus-admin-tags-item-bg-color);
+        border: 0.0625rem solid var(--vus-admin-tags-item-border-color);
+        color: var(--vus-admin-tags-item-text-color);
+        padding: 0 0.5rem;
+        font-size: 0.75rem;
+        margin-left: 0.3125rem;
+        margin-top: 0.375rem;
+        vertical-align: top;
+        transition: all ease-in-out 200ms;
+
+        &:first-of-type {
+          margin-left: 0.625rem;
+        }
+
+        &:last-of-type {
+          margin-right: 0.625rem;
+        }
+
+        &:hover {
+          color: var(--vus-admin-tags-item-text-hover-color);
+          border-color: var(--vus-admin-tags-item-border-hover-color);
+          background-color: var(--vus-admin-tags-item-bg-hover-color);
+        }
+
+        &.active {
+          color: var(--vus-admin-tags-item-text-active-color);
+          border-color: var(--vus-admin-tags-item-border-active-color);
+          background-color: var(--vus-admin-tags-item-bg-active-color);
+        }
+
+        // 图标
+        .tags-icon {
+          margin-right: 0.3125rem;
+          display: inline-flex;
+          align-items: center;
+
+          .el-icon,
+          .vus-icon,
+          .svg-icon {
+            width: 0.75rem;
+            height: 0.75rem;
+            font-size: 0.75rem;
+          }
+        }
+
+        // 标题文本
+        .tags-text {
+          max-width: 6.25rem;
+          display: inline-block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        // 关闭按钮
+        .tags-close {
+          width: 0.875rem;
+          height: 0.875rem;
+          margin-left: 0.125rem;
+          border-radius: 50%;
+          text-align: center;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease-out;
+
+          &::before {
+            display: block;
+            transform: scale(0.8);
+          }
+
+          &:hover {
+            color: var(--vus-admin-tags-item-close-text-hover-color);
+            background-color: var(--vus-admin-tags-item-close-bg-hover-color);
+          }
+        }
+
+        // 非当前激活的标签隐藏关闭按钮
+        &:not(.active) .tags-close {
+          width: 0;
+          height: 0;
+          overflow: hidden;
+        }
+
+        // 鼠标经过显示关闭按钮
+        &:hover {
+          .tags-close {
+            width: 0.875rem;
+            height: 0.875rem;
+          }
+        }
+      }
+    }
+
+    .tags-scroll-pane-wrapper {
+      width: 100%;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+
+      ::v-deep {
+        .el-scrollbar__bar {
+          bottom: 0;
+        }
+        .el-scrollbar__wrap {
+          height: 3.375rem;
+        }
+      }
+    }
+
+    // 右键菜单
+    .tags-context-menu {
+      margin: 0;
+      list-style-type: none;
+      position: absolute;
+      z-index: 3000;
+      padding: 0.25rem 0;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--vus-admin-tags-context-menu-text-color);
+      background-color: var(--vus-admin-tags-context-menu-bg-color);
+      box-shadow: 0 0.0625rem 0.25rem
+        var(--vus-admin-tags-context-menu-box-shadow-color);
+
+      li {
+        margin: 0;
+        padding: 0.4375rem 1rem;
+        cursor: pointer;
+        transition: all ease-in 200ms;
+
+        &:hover {
+          color: var(--vus-admin-tags-context-menu-text-hover-color);
+          background-color: var(--vus-admin-tags-context-menu-item-hover-color);
+        }
+      }
+    }
+  }
+
+  /**
+  * @description: 用户信息、头像
+  * @Date: 2022-08-10 15:10:06
+  */
+  .app-user-info {
+    height: 100%;
+    float: right;
+    transition: background 280ms;
+
+    &:hover {
+      background-color: var(--vus-admin-header-user-hover-color);
+    }
+
+    .user-info-dropdown {
+      padding: 0.3125rem 0.625rem;
+
+      .user-info-wrapper {
+        position: relative;
+
+        .user-avatar {
+          cursor: pointer;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          float: left;
+          margin-right: 0.3125rem;
+        }
+
+        .user-content {
+          max-width: calc(6.875rem - 2.8125rem);
+          height: 2.5rem;
+          line-height: 1.2;
+          float: left;
+          cursor: pointer;
+          overflow: hidden;
+
+          .user-content-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+          }
+
+          .user-name {
+            width: 100%;
+            height: 1.375rem;
+            line-height: 1.375rem;
+            font-size: 1rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: var(--vus-admin-header-user-name-text-color);
+          }
+
+          .user-role {
+            height: 1.125rem;
+            line-height: 1.125rem;
+            font-size: 0.75rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: var(--vus-admin-header-user-role-text-color);
+          }
+        }
+
+        .user-arrow {
+          width: 1rem;
+          height: 2.5rem;
+          float: left;
+          cursor: pointer;
+          font-size: 0.75rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .svg-icon {
+            transition: all 280ms ease-in-out;
+            transform: scale(0.8);
+            color: var(--vus-admin-header-user-icon-color);
+          }
+
+          &.active {
+            svg {
+              transform: scale(0.8) rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * @description: 隐藏侧边导航菜单(继承app-container)
+   * @Date: 2022-07-28 17:10:10
+   */
+  &.hideSidebar {
+    .app-sidebar {
+      width: var(--vus-admin-sidebar-min-width) !important;
+    }
+
+    .app-main-wrapper {
+      margin-left: var(--vus-admin-sidebar-min-width);
+
+      .has-fixed-header {
+        width: calc(100% - var(--vus-admin-sidebar-min-width));
+      }
+    }
+
+    // 无子级菜单
+    .submenu-title-noDropdown {
+      padding: 0 !important;
+      position: relative;
+
+      .el-menu-tooltip__trigger {
+        padding: 0 !important;
+        justify-content: center;
+
+        .el-icon,
+        .vus-icon,
+        .svg-icon {
+          margin-right: 0;
+        }
+      }
+    }
+
+    // 有子级菜单
+    .el-sub-menu {
+      overflow: hidden;
+
+      .el-sub-menu__title {
+        padding: 0 !important;
+        justify-content: center;
+
+        .el-icon,
+        .vus-icon,
+        .svg-icon {
+          margin-right: 0;
+        }
+
+        // 隐藏箭头图标
+        .el-sub-menu__icon-arrow {
+          display: none;
+        }
+      }
+    }
+
+    // 收缩菜单隐藏标题文本
+    .el-menu--collapse {
+      .el-sub-menu {
+        & > .el-sub-menu__title {
+          & > .vus-title {
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            display: inline-block;
+          }
+        }
+      }
+
+      // 子菜单最小宽度
+      .el-menu .el-sub-menu {
+        min-width: var(--vus-admin-sidebar-max-width) !important;
+      }
+
+      // 激活的子级菜单其父级的文本颜色
+      .is-active.el-menu-item,
+      .is-active > .el-sub-menu__title {
+        color: var(--vus-admin-sidebar-menu-text-active-color) !important;
+        background-color: var(
+          --vus-admin-sidebar-sub-menu-bg-active-color
+        ) !important;
+      }
+    }
+  }
+
+  /**
+   * @description: 移动端(小屏)
+   * @Date: 2022-08-02 18:02:05
+   */
+  &.mobile {
+    .app-sidebar {
+      width: var(--vus-admin-sidebar-max-width) !important;
+      transition: transform 280ms;
+    }
+
+    .app-main-wrapper {
+      margin-left: 0;
+
+      .has-fixed-header {
+        width: 100%;
+      }
+    }
+
+    // 隐藏面包屑
+    .app-breadcrumb {
+      display: none;
+    }
+
+    &.hideSidebar {
+      .app-sidebar {
+        pointer-events: none;
+        transition-duration: 300ms;
+        transform: translate3d(
+          calc(-1 * var(--vus-admin-sidebar-max-width)),
+          0,
+          0
+        );
+      }
+    }
+
+    &.openSidebar {
+      .app-sidebar {
+        box-shadow: 0 0 1.875rem var(--vus-admin-sidebar-box-shadow-color);
+      }
+    }
+  }
+
+  // 关闭动画效果
+  &.withoutAnimation {
+    .app-sidebar,
+    .app-main-wrapper,
+    .has-fixed-header {
+      transition: none;
+    }
+  }
+}
+
+/**
+ * @description: 收缩菜单(popup样式)
+ * @Date: 2022-08-02 18:02:39
+ */
+.el-menu--vertical {
+  & > .el-menu {
+    background-color: var(--vus-admin-sidebar-bg-color);
+    background-image: var(--vus-admin-sidebar-bg-img);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // 图标
+    .el-icon,
+    .vus-icon,
+    .svg-icon {
+      width: 0.875rem;
+      height: 0.875rem;
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+      text-align: center;
+    }
+  }
+
+  // 子级菜单
+  .nest-menu .el-sub-menu > .el-sub-menu__title,
+  .el-menu-item {
+    &:hover {
+      background-color: var(--vus-admin-sidebar-menu-hover-color) !important;
+    }
+  }
+
+  // popup
+  > .el-menu--popup {
+    max-height: calc(99vh - 0.625rem);
+    overflow-y: auto;
+
+    // 滚动条美化
+    &::-webkit-scrollbar-track-piece {
+      background-color: var(--vus-admin-sidebar-sub-menu-track-piece-color);
+    }
+
+    &::-webkit-scrollbar {
+      width: 0.375rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--vus-admin-sidebar-sub-menu-thumb-color);
+      border-radius: 1.25rem;
+    }
+  }
+}
+
+/*------------------------------
+ * 登录页样式
+ *------------------------------
+*/
+.app-login {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--vus-admin-login-bg-color);
+  background-image: var(--vus-admin-login-bg-img);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: auto;
+
+  .login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .login-wrapper {
+    width: var(--vus-admin-login-wrapper-width);
+    max-width: var(--vus-admin-login-wrapper-max-width);
+    padding: var(--vus-admin-login-wrapper-padding);
+    position: relative;
+  }
+
+  .login-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.9375rem 0;
+
+    .title-img {
+      width: 3.75rem;
+
+      + .title-text {
+        margin-top: 0.625rem;
+      }
+    }
+
+    .title-text {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--vus-admin-login-title-text-color);
+    }
+  }
+
+  .login-form {
+    width: 100%;
+    height: 100%;
+    padding: var(--vus-admin-login-form-padding);
+    border-radius: var(--vus-admin-login-form-radius);
+    box-shadow: var(--vus-admin-login-form-box-shadow);
+    position: relative;
+    background-color: var(--vus-admin-login-form-bg-color);
+    background-image: var(--vus-admin-login-form-bg-img);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // 自定义输入框样式
+    .el-input {
+      --el-input-text-color: var(--vus-admin-login-input-text-color);
+      --el-input-bg-color: var(--vus-admin-login-input-bg-color);
+      --el-input-border-color: var(--vus-admin-login-input-border-color);
+      --el-input-hover-border-color: var(
+        --vus-admin-login-input-hover-border-color
+      );
+      --el-text-color-placeholder: var(
+        --vus-admin-login-input-placeholder-color
+      );
+
+      .el-input__prefix {
+        color: var(--vus-admin-login-input-prefix-color);
+      }
+
+      .el-input__clear,
+      .el-input__password,
+      .el-input__suffix {
+        color: var(--vus-admin-login-input-suffix-color);
+      }
+    }
+
+    // 验证码
+    .login-verify-code-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      .verify-code-input {
+        width: 100%;
+        flex: 1;
+      }
+
+      .verify-code-img {
+        flex-shrink: 0;
+        padding-left: 0.625rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+/*------------------------------
+ * 全局样式定义
+ *------------------------------
+*/
+// 图标右侧距离
+.svg-icon-right {
+  margin-right: 0.3125rem;
+}
+
+// 公共索引
+.z-index-0 {
+  z-index: 0 !important;
+}
+.z-index-10000 {
+  z-index: 10000 !important;
+}
+.z-index-10001 {
+  z-index: 10001 !important;
+}
+.z-index-10002 {
+  z-index: 10002 !important;
+}
+
+// 宽度布满
+.app-width-full {
+  width: 100% !important;
+}
+
+// 盒子
+.app-flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &-inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  &-items-start {
+    align-items: flex-start;
+  }
+  &-items-center {
+    align-items: center;
+  }
+  &-items-end {
+    align-items: flex-end;
+  }
+  &-justify-start {
+    justify-content: flex-start;
+  }
+  &-justify-center {
+    justify-content: center;
+  }
+  &-justify-end {
+    justify-content: flex-end;
+  }
+}
+
+[class*=' app-flex-col-'],
+[class^='app-flex-col-'] {
+  width: 100%;
+  max-width: 100%;
+  min-height: 1px;
+  position: relative;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.app-flex-col-auto {
+  width: auto;
+  max-width: none;
+  flex: 0 0 auto;
+}
+
+.app-flex-col-1 {
+  max-width: 8.3333333333%;
+  flex: 0 0 8.3333333333%;
+}
+.app-flex-col-2 {
+  max-width: 16.6666666667%;
+  flex: 0 0 16.6666666667%;
+}
+.app-flex-col-3 {
+  max-width: 25%;
+  flex: 0 0 25%;
+}
+.app-flex-col-4 {
+  max-width: 33.3333333333%;
+  flex: 0 0 33.3333333333%;
+}
+.app-flex-col-5 {
+  max-width: 41.6666666667%;
+  flex: 0 0 41.6666666667%;
+}
+.app-flex-col-6 {
+  max-width: 50%;
+  flex: 0 0 50%;
+}
+.app-flex-col-7 {
+  max-width: 58.3333333333%;
+  flex: 0 0 58.3333333333%;
+}
+.app-flex-col-8 {
+  max-width: 66.6666666667;
+  flex: 0 0 66.6666666667;
+}
+.app-flex-col-9 {
+  max-width: 75%;
+  flex: 0 0 75%;
+}
+.app-flex-col-10 {
+  max-width: 83.3333333333%;
+  flex: 0 0 83.3333333333%;
+}
+.app-flex-col-11 {
+  max-width: 91.6666666667%;
+  flex: 0 0 91.6666666667%;
+}
+.app-flex-col-12 {
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+
+/*------------------------------
+ * element plus 组件定义
+ *------------------------------
+*/
+// 滚动组件
+.app-el-scrollbar {
+  .el-scrollbar__view {
+    height: 100% !important;
+  }
+}
+.app-scrollbar-wrapper {
+  overflow-x: hidden !important;
+}

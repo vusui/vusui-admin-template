@@ -1,0 +1,83 @@
+/*
+ * @Description: 春季主题(兰花)
+ * @Author: linpan(45650368@qq.com)
+ * @Date: 2022-08-30 11:28:39
+ * @LastEditors: linp linp@epsoft.com.cn
+ * @LastEditTime: 2022-09-06 10:42:21
+ * @WebSite: https://vusui.com
+ * @Copyright: 2017-present The Vusui Authors
+ * @Readme: 开源不易，且用且珍惜！
+ */
+@use '../variable' as *;
+
+// 需要加上html为前缀，否则不生效
+html.spring {
+  color-scheme: spring;
+
+  $vus-color-primary: #00a558;
+  $vus-color-primary-light-3: #52ce94;
+  $vus-color-primary-light-5: #75e2af;
+  $vus-color-primary-light-7: #9beec7;
+  $vus-color-primary-light-8: #bcf8dc;
+  $vus-color-primary-light-9: #e7fff4;
+  $vus-color-primary-dark-2: #00924e;
+
+  /**
+   * @description: 左则 sidebar 菜单
+   * @Date: 2022-08-09 11:48:25
+   */
+  // 一级菜单
+  --vus-admin-sidebar-bg-img: url('https://cdn.vusui.com/image/admin/sidebar-bg-spring.jpg');
+  --vus-admin-sidebar-bg-color: #006938;
+  --vus-admin-sidebar-menu-bg-color: transparent; // 菜单背景颜色
+  --vus-admin-sidebar-menu-hover-color: #{$vus-color-black--01};
+  --vus-admin-sidebar-menu-text-color: #{$vus-color-white--07};
+  --vus-admin-sidebar-menu-text-active-color: #{$vus-color-white};
+  // 子菜单
+  --vus-admin-sidebar-sub-menu-bg-color: #{$vus-color-black--01}; // 子菜单背景颜色
+  --vus-admin-sidebar-sub-menu-hover-color: #{$vus-color-black--02}; // 子级菜单item鼠标经过背景颜色
+
+  // 标签列表item
+  --vus-admin-tags-item-bg-hover-color: #{$vus-color-primary-light-9};
+  --vus-admin-tags-item-bg-active-color: #{$vus-color-primary};
+  --vus-admin-tags-item-border-hover-color: #{$vus-color-primary-light-7};
+  --vus-admin-tags-item-border-active-color: #{$vus-color-primary};
+  --vus-admin-tags-item-text-hover-color: #{$vus-color-primary};
+  // 右键菜单
+  --vus-admin-tags-context-menu-text-hover-color: #{$vus-color-primary};
+  --vus-admin-tags-context-menu-item-hover-color: #{$vus-color-primary-light-9};
+  // 关闭按钮
+  --vus-admin-tags-item-close-bg-hover-color: #{$vus-color-primary-light-3};
+
+  /**
+  * @description: 面包屑
+  * @Date: 2022-08-10 10:27:24
+  */
+  --vus-admin-breadcrumb-link-hover-color: #{$vus-color-primary};
+
+  /**
+  * @description: 登录页
+  * @Date: 2022-09-03 12:49:45
+  */
+  --vus-admin-login-bg-color: #126724;
+  --vus-admin-login-bg-img: url('https://cdn.vusui.com/image/admin/login-bg-spring.jpg');
+  --vus-admin-login-input-text-color: #{$vus-color-white--08};
+  --vus-admin-login-input-bg-color: #{$vus-color-black--02}; // 登录页输入框背景颜色
+  --vus-admin-login-input-border-color: #{$vus-color-white--03}; // 登录页输入框边框颜色
+  --vus-admin-login-input-hover-border-color: #{$vus-color-white--05}; // 登录页输入框边框hover颜色
+  --vus-admin-login-input-prefix-color: #{$vus-color-white--08};
+  --vus-admin-login-input-suffix-color: #{$vus-color-white--08};
+
+  /**
+  * @description: element-plus
+  * @Date: 2022-08-30 14:11:40
+  * @return {*}
+  */
+  --el-color-primary: #{$vus-color-primary};
+  --el-color-primary-light-3: #{$vus-color-primary-light-3};
+  --el-color-primary-light-5: #{$vus-color-primary-light-5};
+  --el-color-primary-light-7: #{$vus-color-primary-light-7};
+  --el-color-primary-light-8: #{$vus-color-primary-light-8};
+  --el-color-primary-light-9: #{$vus-color-primary-light-9};
+  --el-color-primary-dark-2: #{$vus-color-primary-dark-2};
+}

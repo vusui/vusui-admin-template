@@ -1,0 +1,247 @@
+/*
+ * @Description: 全局变量
+ * @Author: linpan(45650368@qq.com)
+ * @Date: 2022-08-19 16:49:14
+ * @LastEditors: vusui 45650368@qq.com
+ * @LastEditTime: 2022-09-18 18:16:09
+ * @WebSite: https://vusui.com
+ * @Copyright: 2017-present The Vusui Authors
+ * @Readme: 开源不易，且用且珍惜！
+ */
+// 颜色变量
+$vus-color-base: #515355 !default; // 基础颜色
+$vus-color-white: #fff !default; // 白色
+$vus-color-black: #000 !default; // 黑色
+$vus-color-gray: #808080 !default; // 灰色
+$vus-color-transparent: transparent !default; // 透明
+$vus-color-placeholder: #a8abb2 !default; // 占位符
+
+// 主题
+$vus-color-primary: #409eff !default;
+$vus-color-primary-light-3: lighten($vus-color-primary, 11.2%) !default;
+$vus-color-primary-light-5: lighten($vus-color-primary, 18.9%) !default;
+$vus-color-primary-light-7: lighten($vus-color-primary, 26.2%) !default;
+$vus-color-primary-light-8: lighten($vus-color-primary, 30%) !default;
+$vus-color-primary-light-9: lighten($vus-color-primary, 33.7%) !default;
+$vus-color-primary-dark-2: darken($vus-color-primary, 5%) !default;
+
+// 状态
+$vus-color-disabled-bg: var(--el-disabled-bg-color) !default; // 禁用背景
+$vus-color-disabled-text: var(--el-disabled-text-color) !default; // 禁用文本
+$vus-color-disabled-border: var(
+  --el-disabled-border-color
+) !default; // 禁用边框
+
+// 边框
+$vus-color-border: var(--el-border-color) !default;
+$vus-color-border-light: var(--el-border-color-lighter) !default;
+$vus-color-border-dark: var(--el-border-color-darker) !default;
+
+// 黑色透明
+$vus-color-black--001: rgba(0, 0, 0, 0.01) !default;
+$vus-color-black--002: rgba(0, 0, 0, 0.02) !default;
+$vus-color-black--003: rgba(0, 0, 0, 0.03) !default;
+$vus-color-black--004: rgba(0, 0, 0, 0.04) !default;
+$vus-color-black--005: rgba(0, 0, 0, 0.05) !default;
+$vus-color-black--006: rgba(0, 0, 0, 0.06) !default;
+$vus-color-black--007: rgba(0, 0, 0, 0.07) !default;
+$vus-color-black--008: rgba(0, 0, 0, 0.08) !default;
+$vus-color-black--009: rgba(0, 0, 0, 0.09) !default;
+$vus-color-black--01: rgba(0, 0, 0, 0.1) !default;
+$vus-color-black--02: rgba(0, 0, 0, 0.2) !default;
+$vus-color-black--03: rgba(0, 0, 0, 0.3) !default;
+$vus-color-black--04: rgba(0, 0, 0, 0.4) !default;
+$vus-color-black--05: rgba(0, 0, 0, 0.5) !default;
+$vus-color-black--06: rgba(0, 0, 0, 0.6) !default;
+$vus-color-black--07: rgba(0, 0, 0, 0.7) !default;
+$vus-color-black--08: rgba(0, 0, 0, 0.8) !default;
+$vus-color-black--09: rgba(0, 0, 0, 0.9) !default;
+
+// 白色透明
+$vus-color-white--001: rgba(255, 255, 255, 0.01) !default;
+$vus-color-white--002: rgba(255, 255, 255, 0.02) !default;
+$vus-color-white--003: rgba(255, 255, 255, 0.03) !default;
+$vus-color-white--004: rgba(255, 255, 255, 0.04) !default;
+$vus-color-white--005: rgba(255, 255, 255, 0.05) !default;
+$vus-color-white--006: rgba(255, 255, 255, 0.06) !default;
+$vus-color-white--007: rgba(255, 255, 255, 0.07) !default;
+$vus-color-white--008: rgba(255, 255, 255, 0.08) !default;
+$vus-color-white--009: rgba(255, 255, 255, 0.09) !default;
+$vus-color-white--01: rgba(255, 255, 255, 0.1) !default;
+$vus-color-white--02: rgba(255, 255, 255, 0.2) !default;
+$vus-color-white--03: rgba(255, 255, 255, 0.3) !default;
+$vus-color-white--04: rgba(255, 255, 255, 0.4) !default;
+$vus-color-white--05: rgba(255, 255, 255, 0.5) !default;
+$vus-color-white--06: rgba(255, 255, 255, 0.6) !default;
+$vus-color-white--07: rgba(255, 255, 255, 0.7) !default;
+$vus-color-white--08: rgba(255, 255, 255, 0.8) !default;
+$vus-color-white--09: rgba(255, 255, 255, 0.9) !default;
+
+/**
+ * @description: 基础样式
+ * @Date: 2022-08-30 11:15:17
+ */
+:root {
+  // 前景颜色
+  --vus-admin-color-base: #{$vus-color-base};
+  --vus-admin-color-white: #{$vus-color-white};
+  --vus-admin-color-black: #{$vus-color-black};
+  --vus-admin-color-primary: #{$vus-color-primary};
+
+  // 背景颜色
+  --vus-admin-bg-page: #f6f6f6;
+
+  // 字体大小
+  --vus-admin-font-size-base: 0.875rem; // 基础字体大小
+
+  // 字体着重
+  --vus-admin-font-weight-base: 400;
+
+  // family字体
+  --vus-admin-family-base: 'Helvetica Neue', Helvetica, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  --vus-admin-family-number: SourceCodeProRegular, sans-serif;
+}
+
+/**
+ * @description: 布局样式
+ * @Date: 2022-08-30 11:15:26
+ */
+:root {
+  /**
+   * @description: 左则 sidebar 菜单
+   * @Date: 2022-08-09 11:48:25
+   */
+  // 阴影颜色
+  --vus-admin-sidebar-box-shadow-color: #{$vus-color-black--05}; // 菜单阴影颜色
+  // 菜单宽度
+  --vus-admin-sidebar-max-width: 13.125rem; // 菜单宽度(展开) 210px
+  --vus-admin-sidebar-min-width: 3.375rem; // 菜单宽度(收缩) 54px
+  // 一级菜单
+  --vus-admin-sidebar-bg-img: ''; // sidebar背景图片
+  --vus-admin-sidebar-bg-color: #2d323c; // sidebar背景颜色
+  --vus-admin-sidebar-menu-bg-color: #2d323c; // 菜单背景颜色
+  --vus-admin-sidebar-menu-hover-color: #262a33; // 菜单item鼠标经过背景颜色
+  --vus-admin-sidebar-menu-text-color: #cad3e4; // 菜单默认文字颜色
+  --vus-admin-sidebar-menu-text-active-color: #{$vus-color-primary}; // 菜单当前激活的文字颜色
+  // 子菜单
+  --vus-admin-sidebar-sub-menu-bg-color: #232830; // 子菜单背景颜色
+  --vus-admin-sidebar-sub-menu-hover-color: #1b1f25; // 子级菜单item鼠标经过背景颜色
+  --vus-admin-sidebar-sub-menu-text-active-color: #{$vus-color-white}; // 子级菜单激活时其父级的文本颜色
+  --vus-admin-sidebar-sub-menu-bg-active-color: #{$vus-color-white--01}; // 子级菜单激活时其父级的背景颜色
+  --vus-admin-sidebar-sub-menu-track-piece-color: #{$vus-color-transparent}; // 子菜单滚动条背景颜色
+  --vus-admin-sidebar-sub-menu-thumb-color: #{$vus-color-white--01}; // 子菜单滚动条颜色
+  // LOGO标题
+  --vus-admin-sidebar-logo-height: 3.125rem; // LOGO标题高度 50px
+  --vus-admin-sidebar-logo-bg-color: #{$vus-color-transparent}; // LOGO标题背景颜色
+  --vus-admin-sidebar-logo-text-color: #{$vus-color-white}; // LOGO标题文本颜色
+  --vus-admin-sidebar-logo-border-color: #{$vus-color-white--003}; // LOGO标题边框颜色
+
+  /**
+   * @description: 遮罩层
+   * @Date: 2022-08-09 11:49:50
+   */
+  --vus-admin-mask-bg-color: #{$vus-color-black--05}; // 遮罩层背景
+
+  /**
+   * @description: 顶部导航栏
+   * @Date: 2022-08-09 11:48:40
+   */
+  --vus-admin-header-height: 3.125rem; // 导航栏高度 50px
+  --vus-admin-header-bg-color: #{$vus-color-white}; // 导航栏背景颜色
+  --vus-admin-header-box-shadow-color: #{$vus-color-black--008}; // 导航栏阴影颜色
+  --vus-admin-header-collapse-text-color: #{$vus-color-base}; // 菜单申缩图标颜色
+  --vus-admin-header-collapse-hover-color: #{$vus-color-black--005}; // 菜单申缩图标背景hover颜色
+
+  // 导航栏高度(--vus-admin-header-height) + 标签栏高度(--vus-admin-tags-height)
+  --vus-admin-header-tags-height: 5.5625rem; // 90px
+
+  // 用户信息
+  --vus-admin-header-user-hover-color: #{$vus-color-black--005}; // 用户信息背景hover颜色
+  --vus-admin-header-user-name-text-color: #{$vus-color-base}; // 用户名称颜色
+  --vus-admin-header-user-role-text-color: #{$vus-color-gray}; // 用户角色名称颜色
+  --vus-admin-header-user-icon-color: #{$vus-color-gray}; // 用户信息箭头图标颜色
+
+  // 快捷功能
+  --vus-admin-header-setting-text-color: #{$vus-color-gray}; // 快捷功能图标颜色
+  --vus-admin-header-setting-text-hover-color: #{$vus-color-gray}; // 快捷功能图标hover颜色
+  --vus-admin-header-setting-drawer-bg-color: #{$vus-color-white}; // 快捷功能抽屉背景颜色
+  --vus-admin-header-setting-drawer-box-shadow-color: #{$vus-color-black--01}; // 快捷功能抽屉阴影颜色
+  --vus-admin-header-setting-drawer-title-color: #{$vus-color-base}; // 快捷功能抽屉标题颜色
+
+  /**
+  * @description: 面包屑
+  * @Date: 2022-08-10 10:27:24
+  */
+  --vus-admin-breadcrumb-link-color: #{$vus-color-base}; // 面包屑链接文本颜色
+  --vus-admin-breadcrumb-link-hover-color: #{$vus-color-primary};
+  --vus-admin-breadcrumb-separator-color: #{$vus-color-placeholder}; // 面包屑占位符、分隔符颜色
+  --vus-admin-breadcrumb-text-color: #{$vus-color-disabled-text}; // 面包屑默认文本颜色
+
+  /**
+  * @description: 标签栏
+  * @Date: 2022-08-09 15:23:08
+  */
+  --vus-admin-tags-height: 2.4375rem; // 标签栏高度 2.125rem
+  --vus-admin-tags-bg-color: #{$vus-color-white}; // 标签栏背景颜色
+  --vus-admin-tags-box-shadow-color: #{$vus-color-black--008}; // 标签栏阴影颜色
+  // 标签列表item
+  --vus-admin-tags-item-bg-color: #{$vus-color-white}; // item背景颜色
+  --vus-admin-tags-item-bg-hover-color: #{$vus-color-primary-light-9}; // item hover背景颜色
+  --vus-admin-tags-item-bg-active-color: #{$vus-color-primary}; // item active背景颜色
+  --vus-admin-tags-item-border-color: #{$vus-color-border-light}; // item边框颜色
+  --vus-admin-tags-item-border-hover-color: #{$vus-color-primary-light-7}; // item hover边框颜色
+  --vus-admin-tags-item-border-active-color: #{$vus-color-primary}; // item active边框颜色
+  --vus-admin-tags-item-text-color: #{$vus-color-base}; // item文本颜色
+  --vus-admin-tags-item-text-hover-color: #{$vus-color-primary}; // item hover文本颜色
+  --vus-admin-tags-item-text-active-color: #{$vus-color-white}; // item active文本颜色
+  // 关闭按钮
+  --vus-admin-tags-item-close-text-hover-color: #{$vus-color-white}; // 标签关闭按钮hover图标颜色
+  --vus-admin-tags-item-close-bg-hover-color: #{$vus-color-black--03}; // 标签关闭按钮hover背景颜色
+  // 右键菜单
+  --vus-admin-tags-context-menu-bg-color: #{$vus-color-white}; // 右键菜单背景颜色
+  --vus-admin-tags-context-menu-box-shadow-color: #{$vus-color-black--01}; // 右键菜单阴影颜色
+  --vus-admin-tags-context-menu-text-color: #{$vus-color-base}; // 右键菜单文本颜色
+  --vus-admin-tags-context-menu-text-hover-color: #{$vus-color-primary}; // 右键菜单hover文本颜色
+  --vus-admin-tags-context-menu-item-hover-color: #{$vus-color-primary-light-9}; // 右键菜单hover item颜色
+}
+
+/**
+ * @description: 登录页
+ * @Date: 2022-08-31 16:46:09
+ */
+:root {
+  --vus-admin-login-bg-color: #2d323c; // 登录页背景颜色
+  --vus-admin-login-bg-img: ''; // 登录页背景图片
+  --vus-admin-login-wrapper-width: 100%; // 登录页wrapper宽度
+  --vus-admin-login-wrapper-max-width: 20rem; // 登录页wrapper最大宽度
+  --vus-admin-login-wrapper-padding: 0.9375rem 0 3.125rem; // 登录页wrapper padding
+  --vus-admin-login-form-padding: ''; // 登录页form padding
+  --vus-admin-login-form-bg-color: #{$vus-color-transparent}; // 登录页form背景颜色
+  --vus-admin-login-form-bg-img: ''; // 登录页form背景图片
+  --vus-admin-login-form-radius: 0.25rem; // 登录页form圆角
+  --vus-admin-login-form-box-shadow: ''; // 登录页form阴影
+  --vus-admin-login-title-text-color: #{$vus-color-white}; // 登录页标题文本颜色
+  --vus-admin-login-input-text-color: #{$vus-color-white--06}; // 登录页输入框文本颜色
+  --vus-admin-login-input-bg-color: #{$vus-color-white--005}; // 登录页输入框背景颜色
+  --vus-admin-login-input-border-color: #{$vus-color-white--02}; // 登录页输入框边框颜色
+  --vus-admin-login-input-hover-border-color: #{$vus-color-white--04}; // 登录页输入框边框hover颜色
+  --vus-admin-login-input-prefix-color: #{$vus-color-white--06}; // 登录页输入框前缀颜色
+  --vus-admin-login-input-suffix-color: #{$vus-color-white--06}; // 登录页输入框后缀颜色
+  --vus-admin-login-input-placeholder-color: #{$vus-color-white--06}; // 登录页输入框placeholder颜色
+}
+
+/**
+ * @description: element-plus
+ * @Date: 2022-08-30 11:15:33
+ */
+:root {
+  --el-text-color-regular: #{$vus-color-base};
+  --el-color-primary: #{$vus-color-primary};
+  --el-color-primary-light-3: #{$vus-color-primary-light-3};
+  --el-color-primary-light-5: #{$vus-color-primary-light-5};
+  --el-color-primary-light-7: #{$vus-color-primary-light-7};
+  --el-color-primary-light-8: #{$vus-color-primary-light-8};
+  --el-color-primary-light-9: #{$vus-color-primary-light-9};
+  --el-color-primary-dark-2: #{$vus-color-primary-dark-2};
+}
