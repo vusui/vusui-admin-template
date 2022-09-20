@@ -33,6 +33,12 @@ Vusui-admin-template 基于 Vite3 + Vue3 + TS 搭建。
 
 适用项目：全平台
 
+
+
+【[查看文档](https://www.vusui.com/admin/)】| 【[在线演示](https://admin.vusui.com/)】
+
+
+
 ## npm 配置（没梯子爬墙）
 
 ```bash
